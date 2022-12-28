@@ -34,7 +34,7 @@ Functions that will be called upon, when user click on the PhD text field.
 */
 function phdFunction(){
     var r = document.createElement('span');
-    var phd = document.createElement('p');
+    var phd = document.createElement('h1');
     phd.innerHTML = "PHD";
     r.appendChild(phd);
     var y = document.createElement("INPUT");
@@ -77,46 +77,47 @@ function phdFunction(){
     thesis_url.setAttribute("type","href");
     thesis_url.setAttribute("placeholder","Your Thesis Url here")
     thesis_url.setAttribute("Name","phd_thesis_url")
-    r.appendChild(thesis_url)
-    
-    
+    r.appendChild(thesis_url);
+
+
+
     r.setAttribute("id", "phd");
     document.getElementById("myForm").appendChild(r);
+    
+    
     
 
 
     document.getElementById("myForm").appendChild(r);
         //console.log(r);
         let child_of_r = r.children;
-        console.log(child_of_r);
+        console.log(child_of_r[0]);
 
-        for (let i = 0; i < child_of_r.length; i++) {
+        for (let i = 1; i < child_of_r.length; i++) {
+            child_of_r[i].setAttribute("class","form-control");
 
-            if(child_of_r[i].nodeName !== 'P'){
-                child_of_r[i].setAttribute("class","form-control");
-
-            }
+            
           }
+          
 
-    var g = document.createElement("IMG");
-    g.setAttribute("src", "pngwing.png");
-    g.setAttribute("onclick", "removeElement('myForm','phd')");
-    r.appendChild(g);
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','phd')");
+    r.appendChild(cross);
 
+    var horizontal_line = document.createElement('hr');
+    horizontal_line.setAttribute("height","20px");
+    horizontal_line.setAttribute("color","gray");
+    r.addpendChild(horizontal_line);
+
+
+   
 
 
     }
-   /*
-
-    console.log(document.getElementById("phd"))
-    let firstChild = document.getElementById("phd").firstElementChild;
-    console.log(firstChild)
-
-    var child_of_r = r.child;
-    for (let i = 0; i < child_of_r.length; i++) {
-        console.log(child_of_r[i]);
-      }
-      */
+   
     /*
     
     ----------------------------------------------------------------------------
@@ -127,19 +128,16 @@ function phdFunction(){
     */
     function PostGradFunction(){
         var r = document.createElement('span');
-        var postgrad = document.createElement('p');
+        var postgrad = document.createElement('h1');
         postgrad.innerHTML = "Post Graduation";
         r.appendChild(postgrad);
         var y = document.createElement("INPUT");
         y.setAttribute("type", "text");
         y.setAttribute("placeholder", "University");
-        //var g = document.createElement("IMG");
-        //g.setAttribute("src", "delete.png");
         //increment();
         y.setAttribute("Name", "postgrad_uni");
         r.appendChild(y);
-        //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-        //r.appendChild(g);
+     
         
     
         var postgrad_degree = document.createElement("INPUT");
@@ -184,13 +182,19 @@ function phdFunction(){
         //console.log(r);
         let child_of_r = r.children;
 
-        for (let i = 0; i < child_of_r.length; i++) {
+        for (let i = 1; i < child_of_r.length; i++) {
 
-            if(child_of_r[i].nodeName !== 'P'){
-                child_of_r[i].setAttribute("class","form-control");
+            child_of_r[i].setAttribute("class","form-control");
 
-            }
+            
           }
+
+        var cross = document.createElement("IMG");
+        cross.setAttribute('width','10%');
+        cross.setAttribute('height','10%');
+        cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+        cross.setAttribute("onclick", "removeElement('myForm','postgrad')");
+        r.appendChild(cross);
 
 
 
@@ -209,7 +213,7 @@ function phdFunction(){
     */
     function UnderGradFunction(){
         var r = document.createElement('span');
-        var undergrad = document.createElement('p');
+        var undergrad = document.createElement('h1');
         undergrad.innerHTML = "Under Graduation";
         r.appendChild(undergrad);
         var y = document.createElement("INPUT");
@@ -265,17 +269,26 @@ function phdFunction(){
 
 
         document.getElementById("myForm").appendChild(r);
+        
+
+
+          document.getElementById("myForm").appendChild(r);
         //console.log(r);
         let child_of_r = r.children;
 
-        for (let i = 0; i < child_of_r.length; i++) {
+        for (let i = 1; i < child_of_r.length; i++) {
 
-            if(child_of_r[i].nodeName !== 'P'){
-                child_of_r[i].setAttribute("class","form-control");
+            child_of_r[i].setAttribute("class","form-control");
 
-            }
+            
           }
 
+        var cross = document.createElement("IMG");
+        cross.setAttribute('width','10%');
+        cross.setAttribute('height','10%');
+        cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+        cross.setAttribute("onclick", "removeElement('myForm','undergrad')");
+        r.appendChild(cross);
 
 
         }
@@ -292,7 +305,7 @@ function phdFunction(){
     */
     function HighSchoolFunction(){
         var r = document.createElement('span');
-        var HighSchool = document.createElement('p');
+        var HighSchool = document.createElement('h1');
         HighSchool.innerHTML = "High School";
         r.appendChild(HighSchool);
         var y = document.createElement("INPUT");
@@ -324,23 +337,262 @@ function phdFunction(){
         document.getElementById("myForm").appendChild(r);
 
 
-        document.getElementById("myForm").appendChild(r);
-        //console.log(r);
-        let child_of_r = r.children;
-
-        for (let i = 0; i < child_of_r.length; i++) {
-
-            if(child_of_r[i].nodeName !== 'P'){
-                child_of_r[i].setAttribute("class","m-15 pb-15 form-control");
-                //child_of_r[i].setAttribute("class","shadow-lg p-4 mb-4 bg-white");
-
-
+    
+          let child_of_r = r.children;
+  
+          for (let i = 1; i < child_of_r.length; i++) {
+  
+              child_of_r[i].setAttribute("class","form-control");
+  
+              
             }
-          }
+  
+          var cross = document.createElement("IMG");
+          cross.setAttribute('width','10%');
+          cross.setAttribute('height','10%');
+          cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+          cross.setAttribute("onclick", "removeElement('myForm','highschool')");
+          r.appendChild(cross);
+  
 
 
 
         }
+
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Experience text field.
+
+----------------------------------------------------------------------------
+*/
+function ExperienceFunction(){
+    var r = document.createElement('span');
+    var currentjob = document.createElement('h1');
+    currentjob.innerHTML = "Experience";
+    r.appendChild(currentjob);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Company");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    y.setAttribute("Name", "company_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+
+    var position = document.createElement("INPUT");
+    position.setAttribute("type","text");
+    position.setAttribute("placeholder","Position")
+    position.setAttribute("Name","position_"+i)
+    r.appendChild(position)
+    
+    
+    var start_date = document.createElement("INPUT");
+    start_date.setAttribute("type","date");
+    start_date.setAttribute("placeholder","start_date")
+    start_date.setAttribute("Name","job_start_date_"+i)
+    r.appendChild(start_date)
+
+
+    var end_date = document.createElement("INPUT");
+    end_date.setAttribute("type","date");
+    end_date.setAttribute("placeholder","end_date")
+    end_date.setAttribute("Name","job_end_date_"+i)
+    r.appendChild(end_date)
+    
+    var responsibility = document.createElement("INPUT");
+    responsibility.setAttribute("type","text");
+    responsibility.setAttribute("placeholder","Responsibility")
+    responsibility.setAttribute("Name","responsibility_"+i)
+    r.appendChild(responsibility)
+    
+    
+    r.setAttribute("id", "job"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    //cross.setAttribute("onclick", "removeElement('myForm','job'+i)");
+    cross.setAttribute("onclick", "removeElement('myForm','job" + i + "')");
+    r.appendChild(cross);
+  
+
+
+
+
+    }
+
+
+
+
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Current Job text field.
+
+----------------------------------------------------------------------------
+*/
+function CurrentJobFunction(){
+    var r = document.createElement('span');
+    var currentjob = document.createElement('h1');
+    currentjob.innerHTML = "Current Job";
+    r.appendChild(currentjob);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Company");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    //increment();
+    y.setAttribute("Name", "current_company");
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+
+    var position = document.createElement("INPUT");
+    position.setAttribute("type","text");
+    position.setAttribute("placeholder","Current Position")
+    position.setAttribute("Name","current_position")
+    r.appendChild(position)
+    
+    
+    
+    var start_date = document.createElement("INPUT");
+    start_date.setAttribute("type","date");
+    start_date.setAttribute("placeholder","start_date")
+    start_date.setAttribute("Name","current_job_start_date")
+    r.appendChild(start_date)
+
+    var responsibility = document.createElement("INPUT");
+    responsibility.setAttribute("type","text");
+    responsibility.setAttribute("placeholder","Responsibility")
+    responsibility.setAttribute("Name","current_responsibility")
+    r.appendChild(responsibility)
+    
+    
+    
+    r.setAttribute("id", "currentjob");
+    
+    document.getElementById("myForm").appendChild(r);
+
+
+
+
+
+
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','currentjob')");
+    r.appendChild(cross);
+
+
+
+    }
+
+
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Publications text field.
+
+----------------------------------------------------------------------------
+*/
+function publicationFunction(){
+    var r = document.createElement('span');
+    var publication = document.createElement('p');
+    publication.innerHTML = "Publicationss";
+    r.appendChild(publication);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Paper Title");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    y.setAttribute("Name", "paper_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+    
+    
+    var organization = document.createElement("INPUT");
+    organization.setAttribute("type","text");
+    organization.setAttribute("placeholder","Name of Journal/Conference")
+    organization.setAttribute("Name","journal_org_"+i)
+    r.appendChild(organization)
+
+
+    var date = document.createElement("INPUT");
+    date.setAttribute("type","date");
+    date.setAttribute("placeholder","Journal Date")
+    date.setAttribute("Name","journal_date_"+i)
+    r.appendChild(date)
+
+    
+    
+    r.setAttribute("id", "journal_"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','journal_" + i + "')");
+    r.appendChild(cross);
+
+
+
+    }
+
+
+
 
 /*
 -----------------------------------------------------------------------------

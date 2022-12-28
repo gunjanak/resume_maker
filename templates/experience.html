@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Experience</h2>
+<h4>Click to Choose</h4><button class="btn btn-primary btn-block" onclick="CurrentJobFunction()">Current Job</button>
+<button class="btn btn-primary btn-block" onclick="ExperienceFunction()">Experience</button>
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+<h2>Enter Information about your Job and Experience</h2>
+<hr  style="height:2px;border-width:0;color:gray;background-color:gray">
+<form action="/publications/" id="mainform" method="post" name="mainform">
+<span id="myForm">
+
+</span>
+{% endblock %}
+

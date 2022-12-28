@@ -22,10 +22,6 @@ def education():
         for key, value in request.form.items():
             print(f'{key}: {value}')
         
-
-        
-
-        
         if os.path.exists("resume.json"):
             os.remove("resume.json")
             name_of_file = "resume.json"
@@ -39,11 +35,52 @@ def education():
          #   json.dump(request.form,fp,default=str)
         
         with jsonlines.open(name_of_file, "x") as writer:
-            print("Writing Data from index2.html") 
+            print("Writing Data from index.html") 
             writer.write(request.form)
         print(type(request.form))
 
     return render_template("education.html")
-    
+
+@app.route("/experience/",methods=['POST'])
+def experience():
+     #data = json.load(f)
+    #this receives data from education.html and writes it in json file.s
+    if request.method == 'POST':
+        # Print the form data to the console
+        for key, value in request.form.items():
+            print(f'{key}: {value}')
+
+        name_of_file = "resume.json"
+        # filename.jsonl is the name of the file
+        with jsonlines.open(name_of_file, "a") as writer:
+            print("Writing Data from education.html") 
+            writer.write(request.form)
+
+
+    return render_template("experience.html")
+
+
+@app.route("/publications/",methods=['POST'])
+def publications():
+    if request.method == 'POST':
+        # Print the form data to the console
+        for key, value in request.form.items():
+            print(f'{key}: {value}')
+
+        name_of_file = "resume.json"
+        # filename.jsonl is the name of the file
+        with jsonlines.open(name_of_file, "a") as writer:
+            print("Writing Data from experience.html") 
+            writer.write(request.form)
+
+
+    return render_template("publications.html")
+
+
+@app.route("/resume/",methods=['POST'])
+def resume():
+    return "fuck"
+
+
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
