@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="/static/js/form.js"></script>
+
+    </head>
+    <body>
+        <div class="container py-5 px-10 bg-info">
+            <div class="row">
+                <div class="col-sm-12" style="border : 2px solid black;" >
+                    <h1 class="text-center">This is main header</h1>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-4 text-center" m-5 style="border : 2px solid rgb(199, 4, 4);">
+                    <h2>Education</h2>
+                    
+                    <h4>Click to Choose</h4><button class="btn btn-primary btn-block"  onclick="phdFunction()">PhD</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary btn-block"  onclick="PostGradFunction()">PostGrad</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary btn-block"  onclick="UnderGradFunction()">UnderGrad</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary btn-block"  onclick="HighSchoolFunction()">HighSchool</button>
+                        <br>
+                        <br>
+
+                        <button class="btn btn-primary btn-block" onclick="resetElements()">Reset</button>
+                </div>
+                <div class="col-sm-8  text-center m-5"  style="border : 2px solid rgb(199, 4, 4); ">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate nam molestiae voluptas laudantium maiores voluptates vitae velit provident modi doloribus, odit, quod, repellendus soluta exercitationem dignissimos tempore illo alias obcaecati?</p>
+                    <form>This is a form</form>
+
+                    <h2>Enter your information</h2>
+                    <form action="/experience/" id="mainform" method="post" name="mainform">
+                    <span id="myForm">
+
+                    </span>
+                    <p></p><input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
