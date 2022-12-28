@@ -41,13 +41,13 @@ function phdFunction(){
     y.setAttribute("type", "text");
     y.setAttribute("class","form-control")
     y.setAttribute("placeholder", "University");
-    //var g = document.createElement("IMG");
-    //g.setAttribute("src", "delete.png");
+
+    
     //increment();
+
     y.setAttribute("Name", "phd_uni");
     r.appendChild(y);
-    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-    //r.appendChild(g);
+    
     
     
     
@@ -88,6 +88,7 @@ function phdFunction(){
     document.getElementById("myForm").appendChild(r);
         //console.log(r);
         let child_of_r = r.children;
+        console.log(child_of_r);
 
         for (let i = 0; i < child_of_r.length; i++) {
 
@@ -96,6 +97,11 @@ function phdFunction(){
 
             }
           }
+
+    var g = document.createElement("IMG");
+    g.setAttribute("src", "pngwing.png");
+    g.setAttribute("onclick", "removeElement('myForm','phd')");
+    r.appendChild(g);
 
 
 
