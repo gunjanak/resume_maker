@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Languages</h2>
+<h4>Click to Choose</h4>
+<button class="btn btn-primary btn-block" onclick="languageFunction()">Language</button>
+
+{% endblock %}
+
+
+{% block content %}
+<h2>Enter Information about Languages you know</h2>
+<hr  style="height:2px;border-width:0;color:gray;background-color:gray">
+<form action="/resume/" id="mainform" method="post" name="mainform">
+<span id="myForm">
+
+</span>
+{% endblock %}
+

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+
+	<title>{{ data['name'] }} | {{data['current_position']}} | {{ data['email'] }}</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}">
+    <link rel="stylesheet" href="/static/css/main_2.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	 
+</head>
+<body>
+  
+
+
+	
+
+<div id="doc2" class="yui-t7">
+	
+	<div id="inner">
+        <div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{ data['name'] }}</h1>
+					<h2>{{data['current_position']}}</h2>
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+						<!-- <h3> <a id="pdf" href="#">Download PDF</a> </h3> -->
+						<h3><a href="mailto:{{ data['email'] }}">{{ data['email'] }}</a></h3>
+						<h3>{{ data['number'] }}</h3>
+						<button onclick="window.print()">Print It</button>
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+	
+        <div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Profile</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+								Interested in Data analysig and visualisation using deep Reinforcement learning. 
+							</p>
+						</div>
+					</div><!--// .yui-gf -->
+
+
+
+
+                    <div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+
+                       
+                        {% for i in range(data['primary_skills']|length) %}
+                    
+						<div class="yui-u">
+
+								<div class="talent">
+									<h2>{{ data['primary_skills'][i] }}  
+										
+									</h2>
+									<p>	Rating: {% for i in range(data['rating'][i]|int) %}
+										{{'*'}}
+                                        
+										{% endfor %}
+									</p>
+									
+								</div>
+						</div>
+                        {% endfor %}
+                        
+
+					</div><!--// .yui-gf -->
+
+                    <div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Soft Skills</h2>
+						</div>
+						<div class="yui-u">
+							{% for items in data['soft_skills'] %}
+							<ul class="talent">
+								<li>{{ items }}</li>
+								
+							</ul>
+							{% endfor %}
+						</div>
+					</div><!--// .yui-gf-->
+
+                    <div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+
+							<div class="job">
+								<h2>{{ data['current_company'] }}</h2>
+								<h3>{{ data['current_position']}}</h3>
+								<h4>{{ data['current_job_start_date'][:4]}} - Present</h4>
+								<p>{{ data['current_responsibility'] }}</p>
+							</div>
+
+                            {% for i in range(data['previous_companies']|length) %}
+                            
+
+							<div class="job">
+								<h2>{{ data['previous_companies'][i] }}</h2>
+								<h3>{{ data['previous_positions'][i] }}</h3>
+								<h4>{{ data['previous_start_dates'][i][:4] }} -{{ data['previous_end_dates'][i][:4] }}</h4>
+								<p>{{ data['previous_responsibilities'][i] }}</p>
+							</div>
+
+							{% endfor %}
+                            
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+
+
+
+                    <div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+                      
+                        <div class="yui-u">
+                            <div class="job">
+                                <h2>{{ data['education']['phd_uni'] }}</h2>
+                                <h3> Doctor of Philosophy </h3>
+                                <h4> {{ data['education']['start_date'][:4] }}- {{ data['education']['end_date'][:4] }} </h4>
+                                {% if data['education']['phd_thesis'] %}
+                                
+                                <p><strong>Thesis Title: </strong><a href="{{ data['education']['phd_thesis_url'] }}">{{ data['education']['phd_thesis'] }}</a></p>
+                                
+                                {% endif %}
+
+                            </div>
+							
+							<div class="horizontalgap" style="width:10px"></div>
+						</div>
+
+                        <div class="yui-u">
+                            <div class="job">
+                                <h2>{{ data['education']['postgrad_uni'] }}</h2>
+                                <h3>{{ data['education']['postgrad_degree'] }}</h3>
+                                <h4> {{ data['education']['postgrad_start_date'][:4] }}- {{ data['education']['postgrad_end_date'][:4] }} </h4>
+                                {% if data['education']['postgrad_thesis'] %}
+                                
+                                <p><strong>Thesis Title: </strong><a href="{{ data['education']['postgrad_thesis_url'] }}">{{ data['education']['postgrad_thesis'] }}</a></p>
+                                
+                                {% endif %}
+
+                            </div>
+							
+							<div class="horizontalgap" style="width:10px"></div>
+						</div>
+
+                        <div class="yui-u">
+                            <div class="job">
+                                <h2>{{ data['education']['undergrad_uni'] }}</h2>
+                                <h3>{{ data['education']['undergrad_degree'] }}</h3>
+                                <h4> {{ data['education']['undergrad_start_date'][:4] }}- {{ data['education']['undergrad_end_date'][:4] }} </h4>
+                                {% if data['education']['undergrad_project'] %}
+                                
+                                <p><strong>Project Title: </strong><a href="{{ data['education']['undergrad_project_url'] }}">{{ data['education']['undergrad_project'] }}</a></p>
+                                
+                                {% endif %}
+
+                            </div>
+							
+							<div class="horizontalgap" style="width:10px"></div>
+						</div>
+
+                        <div class="yui-u">
+                            <div class="job">
+                                <h2>{{ data['education']['School'] }}</h2>
+                               
+                                <h4> {{ data['education']['highschool_start_date'][:4] }}- {{ data['education']['highschool_end_date'][:4] }} </h4>
+                               
+                            </div>
+							
+						</div>
+
+					</div><!--// .yui-gf -->
+
+					
+					
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Publications</h2>
+						</div>
+					  
+						{% for i in range(data['publications']|length) %}
+						<div class="yui-u">
+							
+							<div class="job">
+								<h2>{{ data['journals'][i] }}</h2>
+								<h3> {{ data['publications'][i]}} </h3>
+								<h4> {{ data['paper_published_date'][i]}}</h4>
+							</div>
+						</div>
+						{% endfor %}
+					
+					
+					</div><!--// .yui-gf -->
+
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Awards</h2>
+						</div>
+					  
+						{% for i in range(data['awards']|length) %}
+						<div class="yui-u">
+							
+							<div class="job">
+								<h2>{{ data['journals'][i] }}</h2>
+								<h3> {{ data['awards_org'][i]}} </h3>
+								<h4> {{ data['awards_date'][i]}}</h4>
+							</div>
+						</div>
+						{% endfor %}
+					
+					
+					</div><!--// .yui-gf -->
+
+
+
+					
+
+
+
+					
+
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+        <div id="ft">
+			<p>{{ data['name'] }} &mdash; <a href="mailto:{{ data['email'] }}">{{ data['email'] }}</a> &mdash; {{ data['number'] }}</p>
+		</div><!--// footer --
+		
+
+		
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
+
+       
+
+
+
+
+
+</body>
+</html>

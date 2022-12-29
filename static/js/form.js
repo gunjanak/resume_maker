@@ -592,6 +592,254 @@ function publicationFunction(){
     }
 
 
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Soft Skills text field.
+
+----------------------------------------------------------------------------
+*/
+function softSkillsFunction(){
+    var r = document.createElement('span');
+    var soft_skills = document.createElement('h1');
+    soft_skills.innerHTML = "Soft Skills";
+    r.appendChild(soft_skills);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Skill");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    y.setAttribute("Name", "soft_skill_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+    
+    r.setAttribute("id", "soft_skill_"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','soft_skill_" + i + "')");
+    r.appendChild(cross);
+
+
+
+    }
+
+
+
+
+
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Skills text field.
+
+----------------------------------------------------------------------------
+*/
+function technicalSkillsFunction(){
+    var r = document.createElement('span');
+    var skills = document.createElement('h1');
+    skills.innerHTML = "Major Skills";
+    r.appendChild(skills);
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Skill");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    y.setAttribute("Name", "skill_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+    
+    var rating = document.createElement("INPUT");
+    rating.setAttribute("type","number");
+    rating.setAttribute("min","0");
+    rating.setAttribute("max","5");
+    rating.setAttribute("placeholder","Rating 0-5")
+    rating.setAttribute("Name","rating_"+i)
+    r.appendChild(rating)
+
+    
+    r.setAttribute("id", "skill_"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','skill_" + i + "')");
+    r.appendChild(cross);
+
+
+
+    }
+
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Awards text field.
+
+----------------------------------------------------------------------------
+*/
+function awardsFunction(){
+    var r = document.createElement('span');
+    var award = document.createElement('h1');
+    award.innerHTML = "Awards";
+    r.appendChild(award);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Name of Award");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    y.setAttribute("Name", "award_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+    
+    
+    
+    var organization = document.createElement("INPUT");
+    organization.setAttribute("type","text");
+    organization.setAttribute("placeholder","Name of Organization")
+    organization.setAttribute("Name","award_org_"+i)
+    r.appendChild(organization)
+
+
+    var date = document.createElement("INPUT");
+    date.setAttribute("type","date");
+    date.setAttribute("placeholder","Award Date")
+    date.setAttribute("Name","award_date_"+i)
+    r.appendChild(date)
+
+    
+    
+    r.setAttribute("id", "award_"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','award_" + i + "')");
+    r.appendChild(cross);
+
+
+
+    }
+
+/*
+----------------------------------------------------------------------------
+
+Functions that will be called upon, when user click on the Natural Language text field.
+
+----------------------------------------------------------------------------
+*/
+function languageFunction(){
+    var r = document.createElement('span');
+    var language = document.createElement('h1');
+    language.innerHTML = "Language";
+    r.appendChild(language);
+
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "text");
+    y.setAttribute("placeholder", "Natural Language");
+    //var g = document.createElement("IMG");
+    //g.setAttribute("src", "delete.png");
+    increment();
+    console.log(i);
+    y.setAttribute("Name", "NaturalLanguage_"+i);
+    r.appendChild(y);
+    //g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+    //r.appendChild(g);
+
+    
+    var level = document.createElement("select");
+    level.setAttribute("type","select");
+    level.setAttribute("id","level");
+    var levels = ["Begineer","Intermediate","Professional","Fluent","Native"]
+    //Create and append the options
+    for (var j = 0; j < levels.length; j++) {
+        var option = document.createElement("option");
+        option.value = levels[j];
+        option.text = levels[j];
+        level.appendChild(option);
+    } 
+
+    level.setAttribute("Name","level_"+i)
+    r.appendChild(level)
+    
+    r.setAttribute("id", "natural_language_"+i);
+    
+    document.getElementById("myForm").appendChild(r);
+
+    let child_of_r = r.children;
+  
+    for (let i = 1; i < child_of_r.length; i++) {
+
+        child_of_r[i].setAttribute("class","form-control");
+
+        
+    }
+
+    var cross = document.createElement("IMG");
+    cross.setAttribute('width','10%');
+    cross.setAttribute('height','10%');
+    cross.setAttribute("src", "https://www.freeiconspng.com/uploads/x-delete-button-png-15.png");
+    cross.setAttribute("onclick", "removeElement('myForm','natural_language_" + i + "')");
+    r.appendChild(cross);
+
+
+
+
+
+
+    }
 
 
 /*

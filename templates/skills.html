@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Skills</h2>
+<h4>Click to Choose</h4>
+
+<button class="btn btn-primary btn-block" onclick="technicalSkillsFunction()">Skills</button>
+<button class="btn btn-primary btn-block" onclick="softSkillsFunction()">Soft Skills</button>
+
+
+{% endblock %}
+
+
+{% block content %}
+<h2>Enter Information about your Skills</h2>
+<hr  style="height:2px;border-width:0;color:gray;background-color:gray">
+<form action="/awards/" id="mainform" method="post" name="mainform">
+<span id="myForm">
+
+</span>
+{% endblock %}
+
