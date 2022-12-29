@@ -14,35 +14,41 @@ def process_data(data):
     profile['address'] = data[0]['Address']
     profile['email'] = data[0]['email']
     profile['number'] = data[0]['Phone Number']
-    profile['current_company'] = data[2]['current_company']
-    profile['current_position'] = data[2]['current_position']
-    profile['current_job_start_date'] = data[2]['current_job_start_date']
-    profile['current_responsibility'] = data[2]['current_responsibility']
+    profile['about'] = data[0]['description']
+
+
+    if(len(data[2]) >0 ):
+        profile['current_company'] = data[2]['current_company']
+        profile['current_position'] = data[2]['current_position']
+        profile['current_job_start_date'] = data[2]['current_job_start_date']
+        profile['current_responsibility'] = data[2]['current_responsibility']
 
     #Education
-    profile['education'] = data[1]
+    if(len(data[1]) > 0):
+        profile['education'] = data[1]
 
     #Previous Experience
-    companies_list = list(data[2])
-    companies_list = companies_list[4:]
-    no_of_pre_company = int(len(companies_list)/5)
-    company_list= []
-    position_list = []
-    job_start_date = []
-    job_end_date = []
-    prev_responsibility = []
-    for i in range(no_of_pre_company):
-        company_list.append(data[2]['company_'+str(i+1)])
-        position_list.append(data[2]['position_'+str(i+1)])
-        job_start_date.append(data[2]['job_start_date_'+str(i+1)])
-        job_end_date.append(data[2]['job_end_date_'+str(i+1)])
-        prev_responsibility.append(data[2]['responsibility_'+str(i+1)])
+    if(len(data[2]) > 0):
+        companies_list = list(data[2])
+        companies_list = companies_list[4:]
+        no_of_pre_company = int(len(companies_list)/5)
+        company_list= []
+        position_list = []
+        job_start_date = []
+        job_end_date = []
+        prev_responsibility = []
+        for i in range(no_of_pre_company):
+            company_list.append(data[2]['company_'+str(i+1)])
+            position_list.append(data[2]['position_'+str(i+1)])
+            job_start_date.append(data[2]['job_start_date_'+str(i+1)])
+            job_end_date.append(data[2]['job_end_date_'+str(i+1)])
+            prev_responsibility.append(data[2]['responsibility_'+str(i+1)])
 
-    profile['previous_companies'] = company_list
-    profile['previous_positions'] = position_list
-    profile['previous_start_dates'] = job_start_date
-    profile['previous_end_dates'] = job_end_date
-    profile['previous_responsibilities'] = prev_responsibility
+        profile['previous_companies'] = company_list
+        profile['previous_positions'] = position_list
+        profile['previous_start_dates'] = job_start_date
+        profile['previous_end_dates'] = job_end_date
+        profile['previous_responsibilities'] = prev_responsibility
 
 
     #Publications
@@ -58,18 +64,19 @@ def process_data(data):
     profile['journals'] = journal
     profile['paper_published_date'] = published_date
 
-    #Awards
-    awards = []
-    awards_org = []
-    awards_date = []
-    for i in range(int(len(data[5])/3)):
-        awards.append(data[5]['award_'+str(i+1)])
-        awards_org.append(data[5]['award_org_'+str(i+1)])
-        awards_date.append(data[5]['award_date_'+str(i+1)])
+    if(len(data[5]) > 0):
+        #Awards
+        awards = []
+        awards_org = []
+        awards_date = []
+        for i in range(int(len(data[5])/3)):
+            awards.append(data[5]['award_'+str(i+1)])
+            awards_org.append(data[5]['award_org_'+str(i+1)])
+            awards_date.append(data[5]['award_date_'+str(i+1)])
 
-    profile['awards'] = awards
-    profile['awards_org'] = awards_org
-    profile['awards_date'] = awards_date
+        profile['awards'] = awards
+        profile['awards_org'] = awards_org
+        profile['awards_date'] = awards_date
 
         
 

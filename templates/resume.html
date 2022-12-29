@@ -53,7 +53,7 @@
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								Interested in Data analysig and visualisation using deep Reinforcement learning. 
+								{{data['about']}}
 							</p>
 						</div>
 					</div><!--// .yui-gf -->
@@ -108,14 +108,17 @@
 							<h2>Experience</h2>
 						</div><!--// .yui-u -->
 
-						<div class="yui-u">
 
+                        
+						<div class="yui-u">
+                            {% if data['current_company']%}
 							<div class="job">
 								<h2>{{ data['current_company'] }}</h2>
 								<h3>{{ data['current_position']}}</h3>
 								<h4>{{ data['current_job_start_date'][:4]}} - Present</h4>
 								<p>{{ data['current_responsibility'] }}</p>
 							</div>
+                            {% endif %}
 
                             {% for i in range(data['previous_companies']|length) %}
                             
@@ -135,14 +138,16 @@
 
 
 
-
+                    {% if data['education'] %}
                     <div class="yui-gf">
 						<div class="yui-u first">
 							<h2>Education</h2>
 						</div>
-                      
+
+                       {% if data['education']['phd_uni']%}
                         <div class="yui-u">
                             <div class="job">
+                               
                                 <h2>{{ data['education']['phd_uni'] }}</h2>
                                 <h3> Doctor of Philosophy </h3>
                                 <h4> {{ data['education']['start_date'][:4] }}- {{ data['education']['end_date'][:4] }} </h4>
@@ -153,10 +158,14 @@
                                 {% endif %}
 
                             </div>
+                           
 							
 							<div class="horizontalgap" style="width:10px"></div>
 						</div>
+                        {% endif %}
 
+
+                        {% if data['education']['postgrad_uni']%}
                         <div class="yui-u">
                             <div class="job">
                                 <h2>{{ data['education']['postgrad_uni'] }}</h2>
@@ -172,7 +181,10 @@
 							
 							<div class="horizontalgap" style="width:10px"></div>
 						</div>
+                        {% endif %}
 
+
+                        {% if data['education']['undergrad_uni']%}
                         <div class="yui-u">
                             <div class="job">
                                 <h2>{{ data['education']['undergrad_uni'] }}</h2>
@@ -188,7 +200,10 @@
 							
 							<div class="horizontalgap" style="width:10px"></div>
 						</div>
+                        {% endif %}
 
+                        
+                        {% if data['education']['School']%}
                         <div class="yui-u">
                             <div class="job">
                                 <h2>{{ data['education']['School'] }}</h2>
@@ -198,9 +213,10 @@
                             </div>
 							
 						</div>
+                        {% endif %}
 
 					</div><!--// .yui-gf -->
-
+                    {% endif %}
 					
 					
 
@@ -224,6 +240,7 @@
 					</div><!--// .yui-gf -->
 
 
+                 
 					<div class="yui-gf last">
 						<div class="yui-u first">
 							<h2>Awards</h2>
@@ -233,7 +250,7 @@
 						<div class="yui-u">
 							
 							<div class="job">
-								<h2>{{ data['journals'][i] }}</h2>
+								<h2>{{ data['awards'][i] }}</h2>
 								<h3> {{ data['awards_org'][i]}} </h3>
 								<h4> {{ data['awards_date'][i]}}</h4>
 							</div>
@@ -242,6 +259,7 @@
 					
 					
 					</div><!--// .yui-gf -->
+                    
 
 
 
